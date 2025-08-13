@@ -1,10 +1,6 @@
-// enum UserRoles {
-// 	ADMIN = "admin",
-// 	GUEST = "guest",
-// 	SUPER_USER = "super_user",
-// }
+class Bottle {
+	constructor(public name: string, public price: number) {}
+}
 
-// console.log(UserRoles.ADMIN);
-
-let a;
-console.log(typeof a);
+const b1 = new Bottle("Milton", 120);
+console.log(b1);

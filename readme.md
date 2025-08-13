@@ -92,3 +92,136 @@ if (typeof a === "string") {
 	a.toUpperCase();
 }
 ```
+
+### Void
+
+Void represents a valueless entity. It's mostly used as a return type of function it it returns nothing.
+
+```typescript
+function xyz(): void {
+	console.log("Holla");
+}
+```
+
+### null & undefined
+
+They behaves same as in JS.
+
+### Never
+
+It is a special type which represents, nothing will be returned from something neither a value nor control. It is rarely used in common scenarios but used sometimes with infinite loop/ error throwing code.
+
+### Type Inference
+
+Type inference means the type of data is automatically inferred based on its initialization.
+
+### Type Annotation
+
+When we explicitly define types of data, then it's called type annotation
+e.g.
+
+```typescript
+let a: number;
+let b: string | null;
+let c: number | string | null;
+```
+
+## Interfaces and Type aliases
+
+### Interface:
+
+interface is used to declare shape of an object.
+
+-   it can have multiple values.
+-   values declared with a ? at the end are optional values
+    eg.
+-   skipping any non-optional value will throw errors
+
+```typescript
+interface User {
+	username: string;
+	email: string;
+	password: string;
+	gender?: string;
+}
+```
+
+### Extending interfaces
+
+We can also extend the interfaces to create another interfaces
+e.g.
+
+```typescript
+interface User {
+	username: string;
+	email: string;
+	password: string;
+	gender?: string;
+}
+
+interface SuperUser extends User {
+	hasPriviledge: boolean;
+}
+```
+
+<b>NOTE: </b> interfaces with same name gets merged and behaves as single unit.
+
+```typescript
+interface abc {
+	name: string;
+}
+
+interface abc {
+	age: string;
+}
+
+// this will behave like
+interface abc {
+	name: string;
+	age: string;
+}
+```
+
+### Type aliases
+
+We can define our own types by clubbing multiple pre-defined types. e.g.
+
+```typescript
+type a = string | number | null;
+type arg_value = string | boolean;
+```
+
+### Type Union
+
+Type union is nothing but defining multiple possible type values for our data.
+e.g.
+
+```typescript
+let str = string | null;
+```
+
+-   This means the str will either be a string or null;
+
+### Type Intersection
+
+Type Intersection helps creating a Common type from multiple types
+e.g.
+
+```typescript
+type User = {
+	name: string;
+	age: number;
+};
+
+type SuperUser = User & {
+	isPrivileged: boolean;
+};
+
+const obj: SuperUser = {
+	name: "a",
+	age: 12,
+	isPrivileged: true,
+};
+```
+
+-   This is similar to Extending interfaces
